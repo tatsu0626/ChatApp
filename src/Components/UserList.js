@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,Platform } from 'react-native';
+import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,Platform,FlatList } from 'react-native';
 
 class UserList extends React.Component{
-  renderUser(user){
+  renderUser({user}){
+    console.log(user);
     <View>
       <Text>{user.user_ID}</Text>
     </View>

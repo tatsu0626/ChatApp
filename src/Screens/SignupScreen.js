@@ -13,59 +13,13 @@ class SignupScreen extends React.Component{
        AsyncStorage.setItem('user',JSON.stringify(user));
        console.log(user);
   }
-
-
-      /* response = await fetch('https://afternoon-beyond-22141.herokuapp.com/api/users', {
-                               method: 'POST',
-                               headers: {
-                                 'Accept': 'application/json',
-                                 'Content-Type': 'application/json',
-                               },
-                               body: JSON.stringify({
-                                 user:{
-                                   name: this.state.name,
-                                   email: this.state.email,
-                                   password: this.state.password,
-                                      }
-                               })
-                             });
-       let res = await response.text();
-       if (response.status >= 200 && response.status < 300) {
-           //Handle success
-           let accessToken = res;
-           console.log(accessToken);
-           //On success we will store the access_token in the AsyncStorage
-           this.storeToken(accessToken);
-           this.redirect('home');
-       } else {
-           //Handle error
-           let error = res;
-           throw error;
-       }
-     } catch(errors) {
-       //errors are in JSON form so we must parse them first.
-       let formErrors = JSON.parse(errors);
-       //We will store all the errors in the array.
-       let errorsArray = [];
-       for(var key in formErrors) {
-         //If array is bigger than one we need to split it.
-         if(formErrors[key].length > 1) {
-             formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
-         } else {
-             errorsArray.push(`${key} ${formErrors[key]}`);
-         }
-       }
-       this.setState({errors: errorsArray})
-       this.setState({showProgress: false});
-     }
-   }*/
   render(){
     return(
       <View style={styles.container}>
         <Text style={styles.title}>ユーザー登録</Text>
         <TextInput
           style={styles.input}
-          value={this.state.userID}
+          value={this.state.user_name}
           onChangeText={(text)=>{this.setState({user_name:text});}}
           autoCapitalize="none"
           autoCorrect={false}
@@ -82,7 +36,7 @@ class SignupScreen extends React.Component{
         />
         <TextInput
           style={styles.input}
-          value={this.state.userID}
+          value={this.state.image_URL}
           onChangeText={(text)=>{this.setState({image_URL:text});}}
           autoCapitalize="none"
           autoCorrect={false}
