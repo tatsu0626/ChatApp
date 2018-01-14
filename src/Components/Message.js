@@ -7,6 +7,8 @@ class Message extends React.Component{
   render(){
     return(
       <View key={this.props.keyval} style={styles.message} >
+
+
           <Text style={styles.messagetext}>{this.props.val.date}</Text>
           <Text style={styles.messagetext}>{this.props.val.message}</Text>
 
@@ -24,8 +26,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     padding: 20,
     paddingRight: 100,
-    borderBottomWidth:2,
-    borderBottomColor: '#ededed'
+    //borderBottomWidth:2,
+    borderBottomColor: '#ededed',
+    backgroundColor:'white',
+    borderRadius:20,
   },
   messagetext:{
     paddingLeft: 20,

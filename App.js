@@ -5,22 +5,23 @@ import HomeScreen from './src/Screens/HomeScreen';
 import ChatroomScreen from './src/Screens/ChatroomScreen';
 import UserlistScreen from './src/Screens/UserlistScreen';
 import Main from './src/reference/Main';
+import LogoutScreen from './src/Screens/LogoutScreen';
 
 
 const App = StackNavigator({
-ChatRoom:{screen:ChatroomScreen},
+Signup:{screen:SignupScreen},
+Home:{screen:ChatroomScreen},
+Login:{screen:LoginScreen},
 Todo:{screen:Main},
 UserList:{screen:UserlistScreen},
-Signup:{screen:SignupScreen},
-Home:{screen:HomeScreen},
-Login:{screen:LoginScreen},
+Logout:{screen:LogoutScreen},
 },{
   navigationOptions:{
   headerTitle:'ChatApp',
   headerTintColor:'#fff',
   headerBackTitle:null,
   headerStyle:{
-    backgroundColor:'Red',
+  backgroundColor:'black',
   },
   headerTitleStyle:{
     color:'#fff',

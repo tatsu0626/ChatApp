@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,AsyncStorage } from 'react-native';
 
+
+
 class SignupScreen extends React.Component{
   state={
     user_name:'',
@@ -8,11 +10,41 @@ class SignupScreen extends React.Component{
     image_URL:'',
   }
 
-  async handleSubmit() {
-       let user={user_name: this.state.user_name,password: this.state.password,image_URL: this.state.image_URL}
-       AsyncStorage.setItem('user',JSON.stringify(user));
-       console.log(user);
-  }
+  async componentWillMount(){
+    AsyncStorage.getAllKeys((err, keys) => {
+    AsyncStorage.multiGet(keys, (err, stores) => {
+    stores.map((result, i, store) => {
+      // get at each store's key/value so you can work with it
+      let key = store[i][0];
+      let value = store[i][1];
+      console.log(value);
+    });
+  });
+});
+}
+  async onRegisterPress() {
+      const { user_name, password, image_URL } = this.state;
+      let userDetails = {
+        name:user_name,
+        password:password,
+        icon:image_URL,
+      }
+      console.log(user_name);
+      console.log(password);
+      console.log(image_URL);
+
+      try{
+        AsyncStorage.setItem('@userDetails',JSON.stringify(userDetails))
+        this.props.navigation.navigate('Home');
+      }catch(error){
+        console.log(error);
+      }
+      /*await AsyncStorage.setItem("user_name", user_name);
+      await AsyncStorage.setItem("password", password);
+      await AsyncStorage.setItem("image_URL", image_URL);
+      this.props.navigation.navigate("Home");*/
+    }
+
   render(){
     return(
       <View style={styles.container}>
@@ -42,7 +74,7 @@ class SignupScreen extends React.Component{
           autoCorrect={false}
           placeholder="表示画像URL"
         />
-      <TouchableHighlight style={styles.botton} onPress={this.handleSubmit.bind(this)} >
+      <TouchableHighlight style={styles.botton} onPress={this.onRegisterPress.bind(this)} >
           <Text style={styles.bottontitle}>登録</Text>
       </TouchableHighlight>
       </View>

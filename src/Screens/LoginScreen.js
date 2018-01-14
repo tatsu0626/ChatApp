@@ -1,14 +1,24 @@
 import React from 'react';
-import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight } from 'react-native';
+import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,AsyncStorage,Alert } from 'react-native';
 
 class LoginScreen extends React.Component{
   state={
     userID:'',
     password:'',
   }
-  handleSubmit(){
-    
+  handleSubmit = () => {
+    AsyncStorage.getItem('@userDetails').then((value)=> {
+        let loginUserDetails = JSON.parse(value);
+        if(loginUserDetails.name==this.state.userID && loginUserDetails.password==this.state.password) {
+          this.props.navigation.navigate('Home');
+          AsyncStorage.setItem("@userLoggedIn","true");
+        } else {
+          Alert.alert("error logged in");
+        }
+    }).done();
   }
+
+
   render(){
     return(
       <View style={styles.container}>
