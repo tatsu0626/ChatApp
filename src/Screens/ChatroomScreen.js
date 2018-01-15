@@ -61,7 +61,7 @@ class ChatroomScreen extends React.Component{
             <TabNavigator.Item
               titleStyle={styles.tabtitle}
               title="ユーザー管理"
-              onPress={()=>this.props.navigation.navigate('Signup')}
+              onPress={()=>this.props.navigation.navigate('User')}
             >
 
             </TabNavigator.Item>
@@ -140,6 +140,7 @@ const styles=StyleSheet.create({
     paddingTop:10,
     height:60,
     backgroundColor:'blue',
+    bottom:0,
   },
   tabtitle:{
     color:"black",

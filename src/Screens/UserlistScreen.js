@@ -8,13 +8,13 @@ class UserlistScreen extends React.Component{
   state={
     userList:[],
   }
-async componentWillMount(){
-    AsyncStorage.getItem('user').then((value) => {
-    this.setState({'user':value});
-    });
-    this.setState({userList:value});
-  }
 
+  async componentWillMount(){
+      AsyncStorage.getItem('user').then((value) => {
+      this.setState({'user':value});
+      });
+      this.setState({userList:value});
+    }
 
 
   render(){

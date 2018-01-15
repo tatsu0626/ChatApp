@@ -6,7 +6,7 @@ class LogoutScreen extends React.Component{
     return(
       <View style={styles.container}>
         <Text style={styles.message}>ログアウトしますか？</Text>
-        <TouchableHighlight style={styles.botton} onPress={()=>this.props.navigation.navigate('Signup')} UnderlayColor='#ddd'>
+        <TouchableHighlight style={styles.botton} onPress={()=>this.props.navigation.navigate('Login')} UnderlayColor='#ddd'>
           <Text style={styles.bottontitle}>ログアウト</Text>
         </TouchableHighlight>
       </View>

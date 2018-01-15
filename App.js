@@ -6,6 +6,7 @@ import ChatroomScreen from './src/Screens/ChatroomScreen';
 import UserlistScreen from './src/Screens/UserlistScreen';
 import Main from './src/reference/Main';
 import LogoutScreen from './src/Screens/LogoutScreen';
+import UserScreen from './src/Screens/UserScreen';
 
 
 const App = StackNavigator({
@@ -15,6 +16,7 @@ Login:{screen:LoginScreen},
 Todo:{screen:Main},
 UserList:{screen:UserlistScreen},
 Logout:{screen:LogoutScreen},
+User:{screen:UserScreen},
 },{
   navigationOptions:{
   headerTitle:'ChatApp',
