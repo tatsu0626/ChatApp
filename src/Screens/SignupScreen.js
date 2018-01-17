@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,AsyncStorage } from 'react-native';
+import { StyleSheet,Text,View,TextInput,Button,TouchableHighlight,AsyncStorage,Alert } from 'react-native';
 
 
 
@@ -18,20 +18,21 @@ class SignupScreen extends React.Component{
         password:password,
         icon:image_URL,
       }
-      console.log(user_name);
-      console.log(password);
-      console.log(image_URL);
-
+      //console.log(userDetails.name.length());
       try{
-        AsyncStorage.setItem('@userDetails',JSON.stringify(userDetails))
+        if(userDetails.name.length<2 || userDetails.name.length>20) {
+        Alert.alert("ユーザー名は２文字〜２０文字で設定してください。");
+      } else if (userDetails.password.length<4||userDetails.password.length>20) {
+        Alert.alert("パスワードは４文字〜２０文字で設定してください。");
+      } else if (userDetails.image_URL.length<8 || userDetails.image_URL.length>250) {
+        Alert.alert("表示画像URLは８文字〜２５０文字で設定してください。");
+      } else {
+        AsyncStorage.setItem('@userDetails',JSON.stringify(userDetails));
         this.props.navigation.navigate('Home');
+      }
       }catch(error){
         console.log(error);
       }
-      /*await AsyncStorage.setItem("user_name", user_name);
-      await AsyncStorage.setItem("password", password);
-      await AsyncStorage.setItem("image_URL", image_URL);
-      this.props.navigation.navigate("Home");*/
     }
 
   render(){
