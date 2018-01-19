@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "emoji-utils": "^1.0.1",
+    "exp": "^48.0.0",
     "expo": "^24.0.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
